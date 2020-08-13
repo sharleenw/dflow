@@ -117,7 +117,7 @@ use_rmd <- function(target_file) {
 ##' Drop a starter .gitignore in the current working directory, including
 ##' ignores for drake and capsule (renv).
 ##'
-##' @title use_gitignore
+##' @title use_dflow_gitignore
 ##' @return nothing, creates a file.
 ##' @author Miles McBain
 use_dflow_gitignore <- function() {

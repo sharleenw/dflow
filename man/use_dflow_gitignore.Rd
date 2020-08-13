@@ -2,7 +2,7 @@
 % Please edit documentation in R/use_dflow.R
 \name{use_dflow_gitignore}
 \alias{use_dflow_gitignore}
-\title{use_gitignore}
+\title{use_dflow_gitignore}
 \usage{
 use_dflow_gitignore()
 }
