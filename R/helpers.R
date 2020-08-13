@@ -6,3 +6,9 @@ contains_rmarkdown <- function(filepath) {
   any(grepl("^library\\(rmarkdown\\)", libs_file_lines))
 
 }
+
+
+
+`%||%` <- function(x, y) {
+  if (is.null(x)) y else x
+}
