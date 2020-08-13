@@ -25,3 +25,16 @@ loadd_packages <- function(){
   source("./packages.R")
 
 }
+
+#' Loads all current packages and sources all functions
+#'
+#' @return All scripts and functions
+#' @export
+loadd_functions <- function() {
+
+  loadd_packages()
+
+  ## Load your R functions after restarting R
+  lapply(list.files("./R", full.names = TRUE), source)
+
+}
