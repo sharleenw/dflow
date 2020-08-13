@@ -18,14 +18,16 @@ use_dflow <- function(){
   usethis::use_template("plan.R",
                         save_as = "/R/plan.R",
                         package = "dflow")
-  usethis::use_template(".env", package = "dflowcno")
+  usethis::use_template(".env", package = "dflow")
+
+  use_dflow_readme()
+  use_dflow_gitignore()
+
+  renv::init(restart = FALSE)
+
+  usethis::ui_warn("When asked, please commit all files and restart R.")
 
   usethis::use_git()
-
-  use_dflow_gitignore()
-  use_dflow_readme()
-
-  renv::init()
 
 }
 
@@ -118,13 +120,7 @@ use_rmd <- function(target_file) {
 ##' @title use_gitignore
 ##' @return nothing, creates a file.
 ##' @author Miles McBain
-##' @export
-use_gitignore <- function() {
-
-  if (file.exists("./.gitignore")) {
-    message("./.gitignore file already exists and was not overwritten.")
-    invisible(return(NULL))
-  }
+use_dflow_gitignore <- function() {
 
     usethis::use_template(template = "_gitignore",
                           package = "dflow",
@@ -133,5 +129,20 @@ use_gitignore <- function() {
 }
 
 
+
+##' Use a starter README
+##'
+##' Drop a starter README in the current working directory.
+##'
+##' @title use_dflow_readme
+##' @return nothing, creates a file.
+##' @author Sharleen Weatherley
+use_dflow_readme <- function() {
+
+  usethis::use_template(template = "README.md",
+                        package = "dflow",
+                        save_as = "README.md")
+
+}
 
 
