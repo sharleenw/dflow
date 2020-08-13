@@ -1,7 +1,7 @@
 ## Load your packages, e.g. library(drake).
 source("./packages.R")
 
-## Load your R files
+## Load your R functions after restarting R
 lapply(list.files("./R", full.names = TRUE), source)
 
 ## _drake.R must end with a call to drake_config().
