@@ -6,11 +6,27 @@
 ##' @return Nothing. Modifies your workspace.
 ##' @export
 use_dflow <- function(){
+
+
   usethis::use_directory("R")
+  usethis::use_directory("data")
+  usethis::use_directory("deliverables")
+  usethis::use_directory("reference")
+
   usethis::use_template("packages.R", package = "dflow")
   usethis::use_template("_drake.R", package = "dflow")
-  usethis::use_template("plan.R", save_as = "/R/plan.R", package = "dflow")
-  usethis::use_template(".env", package = "dflow")
+  usethis::use_template("plan.R",
+                        save_as = "/R/plan.R",
+                        package = "dflow")
+  usethis::use_template(".env", package = "dflowcno")
+
+  usethis::use_git()
+
+  use_dflow_gitignore()
+  use_dflow_readme()
+
+  renv::init()
+
 }
 
 ##' Generate a target for an R markdown file
