@@ -57,7 +57,7 @@ rmd_target <- function(file_path) {
 
 ##' Create an RMarkdown file and generate target definition code.
 ##'
-##' The generated document defaults to the "./doc" folder. This can be overridden
+##' The generated document defaults to the "./deliverables" folder. This can be overridden
 ##' with option 'dflow.report_dir'.
 ##'
 ##' Due to the way RMarkdown and Knitr use relative paths to the source document
@@ -82,7 +82,7 @@ use_rmd <- function(target_file) {
     target_file <- paste0(target_file, ".Rmd")
   }
 
-  report_dir <- getOption('dflow.report_dir') %||% "doc"
+  report_dir <- getOption('dflow.report_dir') %||% "deliverables"
   file_path <- file.path(report_dir, target_file)
 
   if (file.exists(file_path)) {
@@ -131,5 +131,7 @@ use_gitignore <- function() {
                           save_as = ".gitignore")
 
 }
+
+
 
 
