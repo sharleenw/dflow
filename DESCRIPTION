@@ -12,11 +12,12 @@ Imports:
     fnmate,
     glue,
     readr,
-    cli
+    cli,
+    renv
 Suggests: 
     drake,
     capsule
 Remotes: 
     milesmcbain/fnmate,
     milesmcbain/capsule
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
