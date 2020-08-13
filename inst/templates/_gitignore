@@ -42,5 +42,21 @@ rsconnect/
 # html
 *.html
 
-# renv via capsule
+# renv
 renv/
+
+# CNO-specific items to ignore
+# *.html already done
+*.docx
+*.msg
+*.xls
+*.xlsx
+*.csv
+*.pdf
+*.rds
+*.RData
+*.sav
+
+reference/
+data/
+figure-latex/
