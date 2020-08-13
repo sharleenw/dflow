@@ -50,7 +50,7 @@ options(warn=2)
 
 `dflow::use_dflow()`
 
-Creates a package structure template specific to my team, initializing both `git` and `renv`. This template should be called on new `RProj`s only.
+Creates a package structure template specific to the team, initializing both `git` and `renv`. This template should be called on new `RProj`s only.
 
 ### Creating new `Rmd` files:
 
@@ -87,7 +87,7 @@ if (interactive()) {
 }
 ```
 
-*This will only work outside of an `renv` environment.* Within an `renv` (which is also created automatically), this will not work. However, `dflow` and `fnmate` are included in the automatic package calls.
+*This will only work outside of an `renv` environment.* Within an `renv` (which is created once `dflow::use_dflow()` is called), this will not work. However, `dflow` and `fnmate` are included in the automatic package calls of `dflow::use_dflow()`, so these two packages will still be available for use within the `renv` environment.
 
 ### Loading packages
 
@@ -107,11 +107,10 @@ Another option is to use the `shrtcts` package and add the following lines to th
 
 `dflow::loadd_functions()` loads all packages and your defined functions after restarting R.
 
-Or you can source all functions directly (sourcing the packages separately) by using the `shrtcts` package, and adding this to the `shrtcts.yaml` package (source: https://github.com/MilesMcBain/nycr_meetup_talk):
+Or you can source all functions directly (sourcing the packages separately) by using the `shrtcts` package, and adding this to the `shrtcts.yaml` package (sort of sourced from: https://github.com/MilesMcBain/nycr_meetup_talk):
 
 ```
 - Name: Source all functions
-  id: 4
   Binding: |
     lapply(list.files("./R", full.names = TRUE), source)
   Interactive: true
