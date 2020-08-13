@@ -16,7 +16,7 @@ the path of the file created. (invisibly)
 Create an RMarkdown file and generate target definition code.
 }
 \details{
-The generated document defaults to the "./doc" folder. This can be overridden
+The generated document defaults to the "./deliverables" folder. This can be overridden
 with option 'dflow.report_dir'.
 
 Due to the way RMarkdown and Knitr use relative paths to the source document
