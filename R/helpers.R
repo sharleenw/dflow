@@ -7,6 +7,15 @@ contains_rmarkdown <- function(filepath) {
 
 }
 
+contains_package <- function(package, filepath = "./packages.R") {
+
+  libs_file_lines <-
+    readr::read_lines(filepath)
+
+  any(grepl(paste0("^library\\(", package, "\\)"), libs_file_lines))
+
+}
+
 
 
 `%||%` <- function(x, y) {
