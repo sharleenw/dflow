@@ -22,6 +22,7 @@ use_dflow <- function(){
 
   use_dflow_readme()
   use_dflow_gitignore()
+  use_dflow_rprofile()
 
   renv::init(restart = FALSE)
 
@@ -145,4 +146,44 @@ use_dflow_readme <- function() {
 
 }
 
+##' Use a starter project .Rprofile
+##'
+##' Drop a starter .Rprofile in the current working directory,which sources the home .Rprofile, but allows for project-specific .Rpfoile settings.
+##'
+##' @title use_dflow_rprofile
+##' @return nothing, creates a file.
+##' @author Miles McBain
+use_dflow_rprofile <- function() {
+
+  usethis::use_template(template = ".Rprofile",
+                        package = "dflow",
+                        save_as = ".Rprofile")
+
+}
+
+
+##' Adds a package to the ./packages.R file
+##'
+##' Adds a desired package to the ./packages.R file, and loads the package into the interactive environment. Does not take a snapshot of the renv.
+##'
+##' @param package Name of the desired package to be added, as a string.
+##'
+##' @title dflow_add_package
+##' @return updates a file and loads a package.
+##' @author Sharleen Weatherley
+dflow_add_package <- function(package) {
+
+  if (file.exists("./packages.R") &&
+      !contains_package(package, "./packages.R")) {
+
+    packages <- readr::read_lines("./packages.R")
+    packages <- c(packages, paste0("library(", package, ")"))
+    readr::write_lines(packages, "./packages.R")
+    message(cli::symbol$tick,paste0(" Writing 'library(", package, ")' to './packages.R'"))
+
+   requireNamespace(package)
+
+  }
+
+}
 
