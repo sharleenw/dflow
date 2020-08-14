@@ -7,13 +7,13 @@
 dflow_add_package(package)
 }
 \arguments{
-\item{package}{NAme of the desired package to be added, as a string.}
+\item{package}{Name of the desired package to be added, as a string.}
 }
 \value{
 updates a file and loads a package.
 }
 \description{
-Use a starter project .Rprofile
+Adds a package to the ./packages.R file
 }
 \details{
 Adds a desired package to the ./packages.R file, and loads the package into the interactive environment. Does not take a snapshot of the renv.
