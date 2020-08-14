@@ -36,12 +36,11 @@ and make your project more reproducible:
 
 1. `library(conflicted)` is called in `packages.R` to detect package masking issues.
 
-2. `.env` is added carrying the following options to avoid misuse of logical vector tests and to cause errors if there are warnings:
+2. `.env` is added carrying the following options to avoid misuse of logical vector tests:
 
 ```
 _R_CHECK_LENGTH_1_LOGIC2_=verbose
 _R_CHECK_LENGTH_1_CONDITION_=true
-options(warn=2)
 ```
 
 3. `renv` is automatically initialized, in order to track packages versions.
