@@ -52,6 +52,30 @@ options(warn=2)
 
 Creates a package structure template specific to the team, initializing both `git` and `renv`. This template should be called on new `RProj`s only.
 
+```
+.
++-- .git
++-- .RProj.user
++-- data
++-- deliverables
++-- packages.R
++-- R
+|   \-- plan.R
++-- README.md
++-- reference
++-- renv
+|   +-- activate.R
+|   +-- library
+|   |   \-- R-4.0
+|   \-- settings.dcf
++-- .env
++-- .gitignore
++-- .RProfile
++-- renv.lock
++-- test_dflow.Rproj
+\-- _drake.R
+```
+
 ### Creating new `Rmd` files:
 
 `dflow::use_rmd("analysis.Rmd")`:
