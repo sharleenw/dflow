@@ -1,3 +1,4 @@
 ^dflow\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
+^inst/templates/\.env$
