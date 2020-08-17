@@ -24,7 +24,7 @@ use_dflow <- function(){
   use_dflow_gitignore()
   use_dflow_rprofile()
 
-  renv::init(restart = FALSE)
+  capsule::create()
 
   usethis::ui_warn("When asked, please commit all files and restart R.")
 
@@ -155,10 +155,10 @@ use_dflow_readme <- function() {
 ##' @author Miles McBain
 use_dflow_rprofile <- function() {
 
-  usethis::use_template(template = ".Rprofile",
-                        package = "dflow",
-                        save_as = ".Rprofile")
-
+  rprofile_contents <- paste('source("~/.Rprofile")',
+                             'options(warn = 2)',
+                             sep = "\n")
+  readr::write_lines(rprofile_contents, ".Rprofile")
 }
 
 
@@ -171,6 +171,7 @@ use_dflow_rprofile <- function() {
 ##' @title dflow_add_package
 ##' @return updates a file and loads a package.
 ##' @author Sharleen Weatherley
+##' @export
 dflow_add_package <- function(package) {
 
   if (file.exists("./packages.R") &&
@@ -181,7 +182,7 @@ dflow_add_package <- function(package) {
     readr::write_lines(packages, "./packages.R")
     message(cli::symbol$tick,paste0(" Writing 'library(", package, ")' to './packages.R'"))
 
-   requireNamespace(package)
+    attachNamespace(package)
 
   }
 

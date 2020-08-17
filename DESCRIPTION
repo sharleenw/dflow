@@ -13,10 +13,9 @@ Imports:
     glue,
     readr,
     cli,
-    renv
-Suggests: 
-    drake,
     capsule
+Suggests: 
+    drake
 Remotes: 
     milesmcbain/fnmate,
     milesmcbain/capsule

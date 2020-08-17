@@ -46,6 +46,12 @@ This is the file to store all of your library calls. Source this file using the 
 
 This file is where the `drake` plan goes.
 
-## `renv`
+### `capsule`
 
-`renv` has been initialized for this project. Please capture snapshots of this project's dependencies using `renv::snapshot()` if your packages change. This will help you in a year from now :).
+`capsule`, which is a more relaxed wrapper for `renv`, created by Miles McBain, has been initialized for this project (`capsule::create()` has been run with `dflow::use_dflow()`). Please capture snapshots of this project's dependencies using `capsule::recreate()` if your packages change. This will help you in a year from now :).
+
+### Project-specific `.Rprofile`
+
+A project-specific `.Rprofile` has been set up with this project.
+
+It will run the global `.Rprofile`, and will also convert any warnings into errors, so that they are properly dealt with in the code.
