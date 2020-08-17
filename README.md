@@ -98,7 +98,46 @@ library(rmarkdown) added to ./packages.R
 
 ## CNO-specific Opinions
 
-### Automatically have `dflow` run interactively
+### Project folder structure
+
+This is the basic outline for a typical analysis project. Feel free to delete any of these folders if you do not need them.
+
+`R`: Use the `R` folder to store your functions. One file per function. Use the `fnmate` to help create the functions, if you'd like.
+
+`data`: The `data` folder is for storing raw data files only. `drake` will take care of any intermediate and final values.
+
+`deliverables`: The `deliverables` folder is for any data deliverables, like PDF reports, Excel files, dashboards, etc. If this project will span multiple time periods, put the respective deliverables for each time period as a sub-folder (e.g., `2019`, `2020`).
+
+`reference`: The `reference` folder is for any requirements documents, project charters, email message chains, etc. that may help someone understand the context of this project.
+
+
+## `git`
+
+Git has been set up for this project. Please use version control with this project and also, please connect it to our Azure DevOps online repository system. Ensure that a coworker completes a code review of this project before it is released.
+
+## `drake`
+
+`drake` is set up with this project. Please use a function-based workflow using `r_make()`. This is what the `packages.R`, `_drake.R` and `R/plan.R` files are for. Please refer to Miles McBain's blog post (https://milesmcbain.xyz/the-drake-post/), the `drake` book (https://books.ropensci.org/drake/), and the `dflow` README on Github (https://github.com/sharleenw/dflow) for more information.
+
+## `packages.R`
+
+This is the file to store all of your library calls. Source this file using the `dflow::loadd_packages()` function.
+
+## `R/plan.R`
+
+This file is where the `drake` plan goes.
+
+## `capsule`
+
+`capsule`, which is a more relaxed wrapper for `renv`, created by Miles McBain, has been initialized for this project (`capsule::create()` has been run with `dflow::use_dflow()`). Please capture snapshots of this project's dependencies using `capsule::recreate()` if your packages change. This will help you in a year from now :).
+
+## Project-specific `.Rprofile`
+
+A project-specific `.Rprofile` has been set up with this project.
+
+It will run the global `.Rprofile`, and will also convert any warnings into errors, so that they are properly dealt with in the code.
+
+## Automatically have `dflow` run interactively
 
 Since `dflow` will only be called interactively, I recommend calling `usethis::edit_r_profile()` and adding the following options to the file that appears:
 
@@ -110,9 +149,9 @@ if (interactive()) {
 }
 ```
 
-*This will only work outside of an `renv` environment.* Within an `renv` (which is created once `dflow::use_dflow()` is called), this will not work. However, `dflow` and `fnmate` are included in the automatic package calls of `dflow::use_dflow()`, so these two packages will still be available for use within the `renv` environment.
+This will work even within the `capsule` environment of the package because we also load the global `.Rprofile`.
 
-### Loading packages
+## Loading packages
 
 `dflow::loadd_packages()` loads all packages after restarting R.
 
@@ -126,7 +165,7 @@ Another option is to use the `shrtcts` package and add the following lines to th
   Interactive: true
 ```
 
-### Loading all functions
+## Loading all functions
 
 `dflow::loadd_functions()` loads all packages and your defined functions after restarting R.
 
@@ -139,7 +178,7 @@ Or you can source all functions directly (sourcing the packages separately) by u
   Interactive: true
 ```
 
-### Loading all targets
+## Loading all targets
 
 `drake::loadd()` loads all targets.
 
