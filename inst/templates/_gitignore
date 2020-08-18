@@ -45,7 +45,7 @@ rsconnect/
 # renv
 renv/
 
-# CNO-specific items to ignore
+# My team-specific items to ignore
 # *.html already done
 *.docx
 *.msg

@@ -2,7 +2,7 @@
 
 An opinionated lightweight template for smooth `drake` flows.
 
-This version has been modified from Miles McBain's original version, for use by my team at CNO specifically.
+This version has been modified from Miles McBain's original version, for use by my team specifically.
 
 ## Installation
 
@@ -94,7 +94,7 @@ library(rmarkdown) added to ./packages.R
 ```
 
 
-## CNO-specific Opinions
+## This fork-specific Opinions
 
 ### Project folder structure
 
